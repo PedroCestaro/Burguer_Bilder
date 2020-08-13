@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styles from './BurguerIngredient.css';
+import PropTypes from 'prop-types';
 
 
-const burguerIngredient = (props) =>{
-    let ingredient = null;
+class BurguerIngredient extends Component{
+    render() {
+        let ingredient = null;
 
-    switch (props.type){
+    switch (this.props.type){
         case('bread-bottom'):
             ingredient = <div className="breadBottom"
             style={styles.breadBottom} />;
@@ -45,6 +47,12 @@ const burguerIngredient = (props) =>{
 
     return ingredient;
 
+    }
+} 
+
+BurguerIngredient.PropTypes = {
+    type: PropTypes.string.isRequired
+    /*Como a interface do TypeScript*/
 };
 
-export default burguerIngredient;
+export default BurguerIngredient;
