@@ -6,10 +6,10 @@ class BurguerBilder extends Component{
     /*State will be manioulated here, 'cause, in this papge is where it's shows*/
     state = {/*adding indexes (igKey) inside the transformedIngredients Array*/
         ingredients:{
-            salad: 1,
-            bacon: 1,
-            cheese: 2,
-            meat:2
+            salad: 0,
+            bacon: 0,
+            cheese: 0,
+            meat:0
         }
     }
     
