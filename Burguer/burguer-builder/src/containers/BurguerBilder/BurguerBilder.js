@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Aux from '../../hoc/auxiliar';
 import Burguer from '../../components/Burguer/Burguer'
+import BuildControls from '../../components/Burguer/BildControls/BuildControls';
+
 
 class BurguerBilder extends Component{
     /*State will be manioulated here, 'cause, in this papge is where it's shows*/
@@ -17,7 +19,7 @@ class BurguerBilder extends Component{
         return(
            <Aux>
                <Burguer ingredients={this.state.ingredients/* adc state to the app*/}/>
-               <div>Build Controls</div>
+               <BuildControls/>
            </Aux>
         );
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './BuidlControl.css'
+import './styles.css'
 
 const buidlControl = (props) =>(
     <div className="buildControl">
