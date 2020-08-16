@@ -99,7 +99,7 @@ class BurguerBilder extends Component{
         return(
            <Aux>
                <Modal show={this.state.purchasing}
-                    modalClosed={this.purchaseCancelHandler}
+                      modalClosed={this.purchaseCancelHandler}
                     /*cancels the final purchase option*/
                >
                    <OrderSummary
