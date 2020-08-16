@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Aux from '../../hoc/auxiliar';
 import Burguer from '../../components/Burguer/Burguer'
 import BuildControls from '../../components/Burguer/BildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Burguer/OrderSummary/OrderSummary';
 
 
 const INGREDIENTS_PRICES /*Global const*/={
@@ -81,6 +83,11 @@ class BurguerBilder extends Component{
 
         return(
            <Aux>
+               <Modal>
+                   <OrderSummary
+                        ingredients={this.state.ingredients}
+                   />
+               </Modal>
                <Burguer ingredients={this.state.ingredients/* adc state to the app*/}/>
                <BuildControls
                     ingredientAdded={this.addIngredientHandler}
