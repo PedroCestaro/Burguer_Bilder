@@ -23,7 +23,8 @@ class BurguerBilder extends Component{
             meat:0
         }, 
         totalPrice: 4,
-        purchasable: false
+        purchasable: false,
+        purchasing: false
     }
 
     updatePurchaseState(ingredients){
@@ -66,10 +67,24 @@ class BurguerBilder extends Component{
         
         const priceDeduction = INGREDIENTS_PRICES[type];
         const oldPrice = this.state.totalPrice;
-        const newPrice = oldPrice - priceAddition;
+        const newPrice = oldPrice - priceDeduction;
          
         this.setState({totalPrice: newPrice, ingredients: updatedIngredients})
         this.updatePurchaseState(updatedIngredients);
+    }
+
+    purchaseHandler = () => {
+        this.setState({purchasing: true});
+    }
+
+    purchaseCancelHandler = () =>{
+        this.setState({
+            purchasing: false
+        });
+    }
+
+    purchaseContinueHandler = () => {
+        alert("You continue!");
     }
 
     render() {
@@ -83,18 +98,24 @@ class BurguerBilder extends Component{
 
         return(
            <Aux>
-               <Modal>
+               <Modal show={this.state.purchasing}
+                    modalClosed={this.purchaseCancelHandler}
+                    /*cancels the final purchase option*/
+               >
                    <OrderSummary
                         ingredients={this.state.ingredients}
-                   />
+                        purchaseCancelled={this.purchaseCancelHandler}
+                        purchaseContinued={this.purchaseContinueHandler}
+                  />
                </Modal>
                <Burguer ingredients={this.state.ingredients/* adc state to the app*/}/>
                <BuildControls
                     ingredientAdded={this.addIngredientHandler}
                     ingredientRemoved={this.removeIngredientHandler}
                     disabled={disabledInfo}
-                    price={this.state.totalPrice}
                     purchasable = {this.state.purchasable}
+                    ordered={this.purchaseHandler}
+                    price={this.state.totalPrice}
                     />
            </Aux>
         );

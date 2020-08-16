@@ -27,6 +27,7 @@ const buidControls /*Not a component, small case*/ = (props) =>(
         <button 
         className="orderButton"
         disabled={!props.purchasable}
+        onClick={props.ordered}
         >ORDER NOW</button>
     </div>
 );/*Not a jsx file, can use parenteses*/
