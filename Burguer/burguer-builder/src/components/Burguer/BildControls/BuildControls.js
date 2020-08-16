@@ -13,6 +13,7 @@ const controls = [
 
 const buidControls /*Not a component, small case*/ = (props) =>(
     <div className="buildControls">
+        <p>Current Price: <strong>{props.price.toFixed(2)/*pointer to the totalPrice*/}</strong></p>
         {controls.map(crtl =>(/*foraeach control in the map*/
                 <BuildControl 
                 key={crtl.label} 
@@ -23,6 +24,10 @@ const buidControls /*Not a component, small case*/ = (props) =>(
                 disabled = {props.disabled[crtl.type]}
                 />
             ))}
+        <button 
+        className="orderButton"
+        disabled={!props.purchasable}
+        >ORDER NOW</button>
     </div>
 );/*Not a jsx file, can use parenteses*/
 
